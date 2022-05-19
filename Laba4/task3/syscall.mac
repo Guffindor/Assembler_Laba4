@@ -1,0 +1,22 @@
+
+%macro READ 2
+  mov rax, 0
+  mov rdi, 0
+  mov rsi, %1 ; адрес строки для вывода
+  mov rdx, %2 ; длина выводимой строки
+  syscall
+%endmacro
+
+%macro WRITE 2
+  mov rax, 1
+  mov rdi, 1
+  mov rsi, %1
+  mov rdx, %2
+  syscall
+%endmacro
+
+%macro EXIT 0-1 0
+  mov rax, 60 ; номер функции, 60 - exit
+  mov rdi, 0 ; код завершения программы
+  syscall ; системный вызов
+%endmacro
